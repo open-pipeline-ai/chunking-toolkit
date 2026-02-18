@@ -1,4 +1,8 @@
 <!--
+     This template ensures quality and consistency. 
+     For small PRs, feel free to be brief in each section.
+     Not all sections may apply to your change: that's okay!
+
      For Work In Progress Pull Requests, please use the Draft PR feature.
      
      Before submitting, ensure you've done the following:
