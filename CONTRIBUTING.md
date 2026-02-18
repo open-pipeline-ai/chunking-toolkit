@@ -39,7 +39,7 @@ nox -s coverage
 
 ### Code Style Standards
 
-- **Line length:** 100 characters
+- **Line length:** 120 characters
 - **Formatter:** Black
 - **Import sorting:** isort (Black-compatible profile)
 - **Linter:** Ruff
