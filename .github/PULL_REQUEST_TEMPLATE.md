@@ -2,14 +2,14 @@
      For Work In Progress Pull Requests, please use the Draft PR feature.
      
      Before submitting, ensure you've done the following:
-     - 📖 Read the [Contributing Guide](CONTRIBUTING.md)
-     - 📖 Read the [Code of Conduct](CODE_OF_CONDUCT.md)
-     - 👷‍♀️ Create small PRs focusing on a single feature or fix
-     - ✅ Provide tests for your changes
-     - 📝 Write descriptive commit messages following Conventional Commits
-     - 📗 Update documentation where applicable
-     - 🧹 Ensure code passes all pre-commit hooks and linting
-     - 📋 Add a changelog entry using `scriv create`
+     - Read the [Contributing Guide](CONTRIBUTING.md)
+     - Read the [Code of Conduct](CODE_OF_CONDUCT.md)
+     - Create small PRs focusing on a single feature or fix
+     - Provide tests for your changes
+     - Write descriptive commit messages following Conventional Commits
+     - Update documentation where applicable
+     - Ensure code passes all pre-commit hooks and linting
+     - Add a changelog entry using `scriv create`
      
      NOTE: All PRs require at least one approval and passing CI checks before merging.
 -->
@@ -31,11 +31,11 @@ _Provide a clear and concise description of what this PR does. Explain the probl
 ## Related Issues
 
 <!--
-Link related issues using GitHub/GitLab keywords.
+Link related issues using GitHub keywords.
 Examples:
 - "Closes #123" (closes issue on merge)
 - "Fixes #456" (fixes issue on merge)
-- "Related to #789" (links but doesn't close)
+- "Resolves #789" (links but doesn't close)
 -->
 
 - Related Issue #
