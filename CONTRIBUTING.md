@@ -121,7 +121,7 @@ We actively welcome your pull requests. Linking to an existing issue is preferre
 
 ### Work in Progress
 
-Use GitHub/GitLab's draft pull request feature to indicate ongoing work. This will disable the merge button until the PR is ready for review.
+Use GitHub draft pull request feature to indicate ongoing work. This will disable the merge button until the PR is ready for review.
 
 ## Changelog Management
 
