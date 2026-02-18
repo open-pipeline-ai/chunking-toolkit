@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/open-pipeline-ai/chunking-toolkit/discussions
+    about: For questions, ideas, and general discussions about chunking-toolkit
+  - name: Documentation
+    url: https://github.com/open-pipeline-ai/chunking-toolkit#readme
+    about: Read the project documentation
