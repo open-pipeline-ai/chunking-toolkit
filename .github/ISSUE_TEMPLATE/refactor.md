@@ -38,8 +38,8 @@ What are you trying to achieve with this refactoring?
 ```
 
 **Issues or challenges:**
-- 
-- 
+-
+-
 
 ## Proposed Changes
 
@@ -50,9 +50,9 @@ What are you trying to achieve with this refactoring?
 ```
 
 **Key changes:**
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Expected Benefits
 
@@ -77,8 +77,8 @@ What are you trying to achieve with this refactoring?
 - [ ] May affect documentation
 
 **List affected modules/files:**
-- 
-- 
+-
+-
 
 ## Testing Plan
 
@@ -100,12 +100,12 @@ pytest --cov
 **Estimated effort:** [Small / Medium / Large]
 
 **Risks:**
-- 
-- 
+-
+-
 
 **Mitigation:**
-- 
-- 
+-
+-
 
 ## Additional Context
 
@@ -118,12 +118,12 @@ Add any other context, such as:
 ## Implementation Plan
 
 **Phase 1:**
-1. 
-2. 
+1.
+2.
 
 **Phase 2:**
-1. 
-2. 
+1.
+2.
 
 ## Willing to Contribute?
 
