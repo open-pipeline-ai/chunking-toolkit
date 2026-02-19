@@ -15,10 +15,35 @@ Some guidelines to help you contribute effectively:
 
 Follow the installation instructions in the [README](README.md#for-development), then return here for development workflow guidance.
 
+### Install Pre-commit Hooks
+
+After cloning and installing dependencies, install pre-commit hooks:
+```bash
+pre-commit install
+```
+
+This will run code quality checks automatically before each commit.
+
 **After setup, verify everything works:**
 ```bash
 pytest  # Should run (even if no tests yet)
-pre-commit run --all-files  # Should pass
+pre-commit run --all-files  # Should pass all hooks
+```
+
+### Pre-commit Hooks
+
+Our pre-commit hooks enforce:
+- Code formatting (ruff-format)
+- Linting (ruff with isort)
+- YAML/TOML validation
+- Trailing whitespace removal
+- Consistent line endings
+
+If a hook fails, it will auto-fix when possible. Review the changes and commit again.
+
+To skip hooks temporarily (not recommended):
+```bash
+git commit --no-verify
 ```
 
 ## Development Workflow
@@ -38,12 +63,13 @@ nox -s coverage
 ```
 
 ### Code Style Standards
-
 - **Line length:** 120 characters
-- **Formatter:** Black
-- **Import sorting:** isort (Black-compatible profile)
-- **Linter:** Ruff
+- **Formatter:** ruff-format (Black-compatible)
+- **Import sorting:** ruff with isort rules
+- **Linter:** ruff
 - **Type hints:** Encouraged for public APIs
+
+All style checks run automatically via pre-commit hooks.
 
 ## Pull Requests
 
@@ -55,7 +81,7 @@ We actively welcome your pull requests. Linking to an existing issue is preferre
    ```bash
    git checkout -b feat/issue-number-add-new-thing
    ```
-   
+
    Branch naming conventions:
    - `feat/` - New features
    - `fix/` - Bug fixes
@@ -74,7 +100,7 @@ We actively welcome your pull requests. Linking to an existing issue is preferre
    git add .
    git commit -m "feat: add semantic chunking strategy"
    ```
-   
+
    Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format:
    - `feat:` - New features
    - `fix:` - Bug fixes
@@ -173,12 +199,14 @@ scriv create
 import pytest
 from chunking_toolkit import Chunker
 
+
 def test_chunker_basic_functionality():
     """Test that chunker processes simple text correctly."""
     chunker = Chunker()
     result = chunker.chunk("Sample text")
     assert len(result) > 0
     assert result[0].text == "Sample text"
+
 
 def test_chunker_with_invalid_input():
     """Test that chunker handles invalid input gracefully."""
