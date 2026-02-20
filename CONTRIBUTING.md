@@ -19,7 +19,8 @@ Follow the installation instructions in the [README](README.md#for-development),
 
 After cloning and installing dependencies, install pre-commit hooks:
 ```bash
-pre-commit install
+uv tool install pre-commit  # Install pre-commit via uv (first time only)
+pre-commit install          # Set up git hooks in this repo
 ```
 
 This will run code quality checks automatically before each commit.
@@ -38,12 +39,16 @@ Our pre-commit hooks enforce:
 - YAML/TOML validation
 - Trailing whitespace removal
 - Consistent line endings
+- Checks unfinished merge resolution
+- Checks docs
 
 If a hook fails, it will auto-fix when possible. Review the changes and commit again.
 
 To skip hooks temporarily (not recommended):
 ```bash
 git commit --no-verify
+# or shorthand:
+git commit -n -m "your message"
 ```
 
 ## Development Workflow
