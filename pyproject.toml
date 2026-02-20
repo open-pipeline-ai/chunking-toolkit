@@ -39,8 +39,6 @@ dev = [
     "scriv>=1.5.0",
     "nox>=2024.3.2",
     "ruff>=0.3.0",
-    "black>=24.0.0",
-    "isort>=5.13.0",
 ]
 
 # Documentation dependencies
@@ -98,7 +96,7 @@ exclude_lines = [
 
 # Ruff configuration (linting and formatting)
 [tool.ruff]
-line-length = 100
+line-length = 120
 target-version = "py310"
 src = ["src", "tests"]
 
