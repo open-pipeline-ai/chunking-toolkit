@@ -191,6 +191,23 @@ scriv create
 
 ## Testing Guidelines
 
+### Running Tests
+
+**Run tests with Nox (matches CI environment):**
+```bash
+nox                    # Run all default sessions (tests + lint)
+nox -s tests-3.12      # Run tests on specific Python version
+nox -s tests -- -v     # Pass pytest arguments
+nox --list             # List all available sessions
+```
+
+**For quick iteration during development, you can run pytest directly:**
+```bash
+pytest                              # Run all tests
+pytest tests/test_chunker.py        # Run specific file
+pytest -k "semantic"                # Run tests matching pattern
+```
+
 ### Writing Tests
 
 - Place tests in the `tests/` directory
@@ -199,7 +216,6 @@ scriv create
 - Use descriptive test function names (e.g., `test_semantic_chunker_handles_empty_input`)
 
 ### Test Structure
-
 ```python
 import pytest
 from chunking_toolkit import Chunker
@@ -209,6 +225,7 @@ def test_chunker_basic_functionality():
     """Test that chunker processes simple text correctly."""
     chunker = Chunker()
     result = chunker.chunk("Sample text")
+    
     assert len(result) > 0
     assert result[0].text == "Sample text"
 
@@ -216,21 +233,18 @@ def test_chunker_basic_functionality():
 def test_chunker_with_invalid_input():
     """Test that chunker handles invalid input gracefully."""
     chunker = Chunker()
+    
     with pytest.raises(ValueError):
         chunker.chunk(None)
 ```
 
-### Running Specific Tests
-
+### Code Quality Checks
 ```bash
-# Run a specific test file
-pytest tests/test_chunker.py
+# Run linting
+nox -s lint
 
-# Run a specific test function
-pytest tests/test_chunker.py::test_chunker_basic_functionality
-
-# Run tests matching a pattern
-pytest -k "semantic"
+# Auto-format code
+nox -s format
 ```
 
 ## Issues
