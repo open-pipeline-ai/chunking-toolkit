@@ -1,0 +1,57 @@
+name: Changelog Fragment Check
+
+on:
+  pull_request:
+    types: [synchronize, reopened, ready_for_review] # Skip draft PRs
+    branches:
+      - main
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for git diff
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dev dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Check for changelog fragment
+        run: |
+          set -e
+          # Define regex to exclude non-source files (tests, docs, CI configs)
+          EXCLUDE="^tests/|^docs/|^\.github/|^noxfile\.py$|^README\.md$|^CONTRIBUTING\.md$|^\.pre-commit-config\.yaml$|^CHANGELOG\.md$"
+          # Get changed files (exclude tests, docs, CI configs)
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            | grep -E "\.(py|md|toml)$" \
+            | grep -Ev "$EXCLUDE" || true)
+
+          # Get changelog fragments
+          FRAGMENTS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            | grep "^changelog\.d/.*\.md$" \
+            | grep -v "^changelog\.d/templates/")
+
+          if [ -n "$CHANGED_FILES" ] && [ -z "$FRAGMENTS" ]; then
+            echo ""
+            echo "❌ ERROR: This PR modifies source code but has no changelog fragment."
+            echo ""
+            echo "To fix this, run:"
+            echo "  scriv create"
+            echo ""
+            echo "Then commit the generated fragment file."
+            echo ""
+            exit 1
+          else
+            echo "✅ Changelog fragment check passed"
+            if [ -n "$FRAGMENTS" ]; then
+              echo "Found $(echo "$FRAGMENTS" | wc -l) fragment(s):"
+              echo "$FRAGMENTS"
+            fi
+          fi
