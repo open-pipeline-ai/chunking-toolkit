@@ -1,10 +1,10 @@
 <!--
-     This template ensures quality and consistency. 
+     This template ensures quality and consistency.
      For small PRs, feel free to be brief in each section.
      Not all sections may apply to your change: that's okay!
 
      For Work In Progress Pull Requests, please use the Draft PR feature.
-     
+
      Before submitting, ensure you've done the following:
      - Read the [Contributing Guide](CONTRIBUTING.md)
      - Read the [Code of Conduct](CODE_OF_CONDUCT.md)
@@ -14,7 +14,7 @@
      - Update documentation where applicable
      - Ensure code passes all pre-commit hooks and linting
      - Add a changelog entry using `scriv create`
-     
+
      NOTE: All PRs require at least one approval and passing CI checks before merging.
 -->
 
@@ -49,9 +49,9 @@ Examples:
 
 _List the key changes in this PR:_
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Testing
 
@@ -67,8 +67,8 @@ pytest --cov
 
 ### Test Configuration
 
-- **Python version(s):** 
-- **Operating System:** 
+- **Python version(s):**
+- **Operating System:**
 - **Tested with nox:** [ ] Yes [ ] No
 
 ## Added/Updated Tests?
