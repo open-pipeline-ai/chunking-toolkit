@@ -33,4 +33,4 @@ jobs:
           uv tool install nox
 
       - name: Run tests
-        run: nox -s tests
+        run: nox --python ${{ matrix.python-version }} -s tests
