@@ -225,7 +225,7 @@ def test_chunker_basic_functionality():
     """Test that chunker processes simple text correctly."""
     chunker = Chunker()
     result = chunker.chunk("Sample text")
-    
+
     assert len(result) > 0
     assert result[0].text == "Sample text"
 
@@ -233,7 +233,7 @@ def test_chunker_basic_functionality():
 def test_chunker_with_invalid_input():
     """Test that chunker handles invalid input gracefully."""
     chunker = Chunker()
-    
+
     with pytest.raises(ValueError):
         chunker.chunk(None)
 ```
@@ -285,6 +285,15 @@ When requesting features, please include:
 2. **CI must pass** - All automated checks must succeed
 3. **Respond promptly** - Address feedback within a reasonable timeframe
 4. **Be respectful** - Constructive criticism helps everyone learn
+
+## Release Process
+
+1. Collect changelog fragments: `scriv collect --version X.Y.Z`
+2. Review and edit `CHANGELOG.md`
+3. Bump version in `pyproject.toml`
+4. Commit: `git commit -m "chore: release vX.Y.Z"`
+5. Tag: `git tag vX.Y.Z`
+6. Push: `git push && git push --tags`
 
 ## Getting Help
 

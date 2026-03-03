@@ -36,7 +36,7 @@ dev = [
     "pytest>=8.0.0",
     "pytest-cov>=4.1.0",
     "pre-commit>=3.6.0",
-    "scriv>=1.5.0",
+    "scriv[toml]>=1.5.0",
     "nox>=2024.3.2",
     "ruff>=0.3.0",
 ]
@@ -130,3 +130,16 @@ include_trailing_comma = true
 force_grid_wrap = 0
 use_parentheses = true
 ensure_newline_before_comments = true
+
+[tool.scriv]
+format = "md"
+fragment_directory = "changelog.d"
+output_file = "CHANGELOG.md"
+categories = [
+    "Added",        # New features
+    "Changed",      # Changes in existing functionality
+    "Deprecated",   # Soon-to-be removed features
+    "Removed",      # Removed features
+    "Fixed",        # Bug fixes
+    "Security",     # Security fixes
+]
