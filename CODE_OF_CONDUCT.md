@@ -57,7 +57,7 @@ further defined and clarified by project maintainers.
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported by contacting the project team at:
 
-- Opening a private issue in the [GitHub repository](https://github.com/open-pipeline-ai/chunking-toolkit/issues)
+- Opening a private issue in the [GitHub repository](https://github.com/open-pipeline-ai/document-processing-toolkit/issues)
 - Contacting project maintainers directly via GitHub
 
 All complaints will be reviewed and investigated and will result in a response that
