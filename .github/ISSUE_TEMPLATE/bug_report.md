@@ -22,9 +22,9 @@ Steps to reproduce the behavior:
 
 ```python
 # Paste your code here
-from chunking_toolkit import Chunker
+from document_processing_toolkit.models import ContentElement
 
-chunker = Chunker()
+content = ContentElement()
 # ... code that triggers the bug
 ```
 
@@ -48,7 +48,7 @@ Please complete the following information:
 
 - **OS:** [e.g., Ubuntu 22.04, macOS 14, Windows 11]
 - **Python version:** [e.g., 3.10.5] (run `python --version`)
-- **chunking-toolkit version:** [e.g., 0.1.0] (run `uv pip show chunking-toolkit`)
+- **document-processing-toolkit version:** [e.g., 0.1.0] (run `uv pip show document-processing-toolkit`)
 - **Installation method:** [e.g., pip, uv, from source]
 
 **Installed dependencies:**

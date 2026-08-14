@@ -28,7 +28,7 @@ Describe how you envision this feature working.
 
 ```python
 # How would users interact with this feature?
-from chunking_toolkit import NewFeature
+from document_processing_toolkit import NewFeature
 
 feature = NewFeature(config="...")
 result = feature.process(data)
