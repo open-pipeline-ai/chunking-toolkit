@@ -111,7 +111,6 @@ document-processing-toolkit/
 │   └── document_processing_toolkit/     # Main package
 │       └── __init__.py
 ├── tests/                    # Test files
-├── docs/                     # Documentation
 ├── pyproject.toml           # Project configuration
 └── README.md               # This file
 ```
