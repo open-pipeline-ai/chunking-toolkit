@@ -112,7 +112,8 @@ We actively welcome your pull requests. Linking to an existing issue is preferre
    - `docs:` - Documentation changes
    - `test:` - Test changes
    - `refactor:` - Code refactoring
-   - `chore:` - Maintenance tasks
+   - `chore:` - Miscellaneous maintenance tasks
+   - `release:` — Preparing/publishing a specific release
 
 4. **Push your branch:**
    ```bash
@@ -291,7 +292,7 @@ When requesting features, please include:
 1. Collect changelog fragments: `scriv collect --version X.Y.Z`
 2. Review and edit `CHANGELOG.md`
 3. Bump version in `pyproject.toml`
-4. Commit: `git commit -m "chore: release vX.Y.Z"`
+4. Commit: `git commit -m "release: release vX.Y.Z"`
 5. Tag: `git tag vX.Y.Z`
 6. Push: `git push && git push --tags`
 
