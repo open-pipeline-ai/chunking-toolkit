@@ -21,7 +21,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install dev dependencies
-        run: pip install -e ".[dev]"
+        run: uv sync --extras dev --locked
 
       - name: Check for changelog fragment
         run: |
