@@ -28,7 +28,7 @@ jobs:
           # Get changelog fragments
           FRAGMENTS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
             | grep "^changelog\.d/.*\.md$" \
-            | grep -v "^changelog\.d/templates/" || true))
+            | grep -v "^changelog\.d/templates/" || true)
 
           if [ -n "$CHANGED_FILES" ] && [ -z "$FRAGMENTS" ]; then
             echo ""
