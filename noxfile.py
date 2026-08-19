@@ -6,10 +6,21 @@ import nox
 nox.options.sessions = ["tests", "lint"]
 
 
-@nox.session(python=["3.10", "3.11", "3.12"])
+def install_dev(session):
+    session.run_install(
+        "uv",
+        "sync",
+        "--extra=dev",
+        "--locked",
+        f"--python={session.virtualenv.location}",
+        env={"UV_PROJECT_ENVIRONMENT": session.virtualenv.location},
+    )
+
+
+@nox.session(venv_backend="uv", python=["3.10", "3.11", "3.12"])
 def tests(session):
     """Run tests with pytest."""
-    session.install(".[dev]")
+    install_dev(session)
     session.run(
         "pytest",
         "--cov=chunking_toolkit",
@@ -19,7 +30,7 @@ def tests(session):
     )
 
 
-@nox.session
+@nox.session(venv_backend="uv")
 def lint(session):
     """Run linting checks."""
     session.install(".[dev]")
@@ -27,7 +38,7 @@ def lint(session):
     session.run("ruff", "format", "--check", ".")
 
 
-@nox.session
+@nox.session(venv_backend="uv")
 def format(session):
     """Auto-format code."""
     session.install(".[dev]")
