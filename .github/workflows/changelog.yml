@@ -15,14 +15,6 @@ jobs:
         with:
           fetch-depth: 0  # Need full history for git diff
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dev dependencies
-        run: uv sync --extras dev --locked
-
       - name: Check for changelog fragment
         run: |
           set -e
@@ -36,7 +28,7 @@ jobs:
           # Get changelog fragments
           FRAGMENTS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
             | grep "^changelog\.d/.*\.md$" \
-            | grep -v "^changelog\.d/templates/")
+            | grep -v "^changelog\.d/templates/" || true))
 
           if [ -n "$CHANGED_FILES" ] && [ -z "$FRAGMENTS" ]; then
             echo ""
