@@ -1,7 +1,9 @@
 """Example test to validate testing infrastructure setup."""
-import chunking_toolkit
+
+import document_processing_toolkit
+
 
 def test_example():
     """Verify pytest is working."""
-    print(chunking_toolkit.__name__)
+    print(document_processing_toolkit.__name__)
     assert True

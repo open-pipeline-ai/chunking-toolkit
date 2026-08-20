@@ -1,4 +1,4 @@
-# Contributing to Chunking Toolkit
+# Contributing to Document Processing Toolkit
 
 Contributions are always welcome, no matter how large or small. Before contributing, please read the [code of conduct](CODE_OF_CONDUCT.md).
 
@@ -145,11 +145,11 @@ We actively welcome your pull requests. Linking to an existing issue is preferre
 
 ### PR Title Examples
 
-- `feat: add hierarchical chunking strategy`
-- `fix: correct token counting in semantic chunker`
-- `docs: add examples for custom chunking strategies`
-- `test: add integration tests for chunker API`
-- `refactor: simplify metadata handling`
+- `feat: add PDF document structure extractor`
+- `fix: preserve figure captions during PDF extraction`
+- `docs: document custom source adapter configuration`
+- `test: add PDF structure extraction tests`
+- `refactor: separate structure extraction from retrieval chunking`
 
 ### Work in Progress
 
@@ -205,38 +205,32 @@ nox --list             # List all available sessions
 **For quick iteration during development, you can run pytest directly:**
 ```bash
 pytest                              # Run all tests
-pytest tests/test_chunker.py        # Run specific file
-pytest -k "semantic"                # Run tests matching pattern
+pytest tests/test_document.py        # Run specific file
+pytest -k "test_pdf"                # Run tests matching pattern
 ```
 
 ### Writing Tests
 
 - Place tests in the `tests/` directory
-- Mirror the structure of `src/chunking_toolkit/`
-- Name test files with `test_` prefix (e.g., `test_chunker.py`)
-- Use descriptive test function names (e.g., `test_semantic_chunker_handles_empty_input`)
+- Mirror the structure of `src/document_processing_toolkit/`
+- Name test files with `test_` prefix
+  (e.g. `test_document.py`, `test_pdf_adapter.py`)
+- Use descriptive test function names
+  (e.g. `test_pdf_extractor_preserves_figure_caption`)
 
 ### Test Structure
 ```python
-import pytest
-from chunking_toolkit import Chunker
+from document_processing_toolkit.models import ContentElement, ElementType
 
 
-def test_chunker_basic_functionality():
-    """Test that chunker processes simple text correctly."""
-    chunker = Chunker()
-    result = chunker.chunk("Sample text")
+def test_content_element_preserves_type_and_text():
+    element = ContentElement(
+        type=ElementType.PARAGRAPH,
+        text="The PSF model is evaluated using simulated data.",
+    )
 
-    assert len(result) > 0
-    assert result[0].text == "Sample text"
-
-
-def test_chunker_with_invalid_input():
-    """Test that chunker handles invalid input gracefully."""
-    chunker = Chunker()
-
-    with pytest.raises(ValueError):
-        chunker.chunk(None)
+    assert element.type is ElementType.PARAGRAPH
+    assert element.text == "The PSF model is evaluated using simulated data."
 ```
 
 ### Code Quality Checks
@@ -252,7 +246,7 @@ nox -s format
 
 To contribute based on an open issue:
 
-1. **Find an issue** - Browse [open issues](https://github.com/open-pipeline-ai/chunking-toolkit/issues)
+1. **Find an issue** - Browse [open issues](https://github.com/open-pipeline-ai/document-processing-toolkit/issues)
 2. **Assign yourself** - Comment `.take` or ask to be assigned
 3. **Start work** - Create a branch and follow the PR workflow above
 
@@ -267,7 +261,7 @@ For first-time contributors, look for issues labeled:
 
 When reporting bugs, please include:
 - Python version (`python --version`)
-- Package version (`uv pip show chunking-toolkit`)
+- Package version (`uv pip show document-processing-toolkit`)
 - Minimal reproducible example
 - Expected vs. actual behavior
 - Error messages and stack traces
@@ -298,7 +292,7 @@ When requesting features, please include:
 
 ## Getting Help
 
-- **Questions?** Open a [discussion](https://github.com/open-pipeline-ai/chunking-toolkit/discussions)
+- **Questions?** Open a [discussion](https://github.com/open-pipeline-ai/document-processing-toolkit/discussions)
 - **Stuck?** Comment on the relevant issue
 - **Need clarification?** Ask in your PR
 
@@ -310,4 +304,4 @@ By contributing to this project, you agree to license your contributions under t
 
 ---
 
-Thank you for contributing to Chunking Toolkit! 🎉
+Thank you for contributing to Document Processing Toolkit! 🎉
