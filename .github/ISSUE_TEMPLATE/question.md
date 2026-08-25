@@ -30,11 +30,11 @@ What result or understanding are you hoping to achieve?
 
 ## Additional Information
 
-- [ ] I've checked the [documentation](https://github.com/open-pipeline-ai/chunking-toolkit#readme)
+- [ ] I've checked the [documentation](https://github.com/open-pipeline-ai/document-processing-toolkit#readme)
 - [ ] I've searched existing issues and discussions
-- [ ] This might be better suited for [GitHub Discussions](https://github.com/open-pipeline-ai/chunking-toolkit/discussions)
+- [ ] This might be better suited for [GitHub Discussions](https://github.com/open-pipeline-ai/document-processing-toolkit/discussions)
 
 ## Environment (if relevant)
 
 - **Python version:** [e.g., 3.10.5]
-- **chunking-toolkit version:** [e.g., 0.1.0]
+- **document-processing-toolkit version:** [e.g., 0.1.0]

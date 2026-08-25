@@ -1,4 +1,4 @@
-"""Nox sessions for chunking-toolkit."""
+"""Nox sessions for document-processing-toolkit."""
 
 import nox
 
@@ -23,7 +23,7 @@ def tests(session):
     install_dev(session)
     session.run(
         "pytest",
-        "--cov=chunking_toolkit",
+        "--cov=document_processing_toolkit",
         "--cov-report=term-missing",
         "--cov-report=html",
         *session.posargs,

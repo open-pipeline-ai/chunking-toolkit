@@ -1,7 +1,7 @@
 [project]
-name = "chunking-toolkit"
+name = "document-processing-toolkit"
 version = "0.1.0"
-description = "Modular toolkit for document chunking strategies with support for semantic and hierarchical segmentation"
+description = "Reusable toolkit for document and content processing"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
@@ -10,7 +10,7 @@ authors = [
     {name = "Rory Claydon", email = "rory.claydon@ed.ac.uk"},
     {name = "Rollin Gimenez", email = "rollin.gimenez@cnes.fr"},
 ]
-keywords = ["chunking", "nlp", "text-processing", "rag", "document-processing"]
+keywords = ["chunking", "nlp", "text-processing", "rag", "document-processing", "structured-documents"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -49,21 +49,21 @@ docs = [
 
 # All optional dependencies for easy installation
 all = [
-    "chunking-toolkit[dev,docs]",
+    "document-processing-toolkit[dev,docs]",
 ]
 
 [project.urls]
-Homepage = "https://github.com/open-pipeline-ai/chunking-toolkit"
-Documentation = "https://github.com/open-pipeline-ai/chunking-toolkit#readme"
-Repository = "https://github.com/open-pipeline-ai/chunking-toolkit"
-Issues = "https://github.com/open-pipeline-ai/chunking-toolkit/issues"
+Homepage = "https://github.com/open-pipeline-ai/document-processing-toolkit"
+Documentation = "https://github.com/open-pipeline-ai/document-processing-toolkit#readme"
+Repository = "https://github.com/open-pipeline-ai/document-processing-toolkit"
+Issues = "https://github.com/open-pipeline-ai/document-processing-toolkit/issues"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/chunking_toolkit"]
+packages = ["src/document_processing_toolkit"]
 
 # Pytest configuration
 [tool.pytest.ini_options]

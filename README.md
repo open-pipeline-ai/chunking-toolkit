@@ -1,21 +1,29 @@
-# Chunking Toolkit
+# Document Processing Toolkit
 
-Modular toolkit for document chunking strategies with support for semantic and hierarchical segmentation.
+A reusable, modular toolkit for processing structured content from
+documents and knowledge-base sources.
+
+The toolkit is designed to support heterogeneous sources such as PDFs,
+Markdown, LaTeX, DOCX, and knowledge-base systems, while providing
+common building blocks that can be reused across applications.
+
+Potential applications include document analysis, information extraction,
+search, retrieval-augmented generation (RAG), and consistency checking.
 
 ## Installation
 
 ### For Users
 
 ```bash
-pip install chunking-toolkit
+pip install document-processing-toolkit
 ```
 
 ### For Development
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/open-pipeline-ai/chunking-toolkit.git
-cd chunking-toolkit
+git clone https://github.com/open-pipeline-ai/document-processing-toolkit.git
+cd document-processing-toolkit
 ```
 
 2. Install uv (if not already installed):
@@ -49,51 +57,60 @@ uv pip list
 
 ### Running Tests
 
+For quick local testing:
+
 ```bash
 # Run all tests
 pytest
 
-# Run with coverage
-pytest --cov
+# Run a specific test file
+pytest tests/test_document.py
 
-# Run specific test file
-pytest tests/test_chunker.py
+# Run tests matching a keyword
+pytest -k "document"
 ```
+
 
 ### Running Tests Across Python Versions
 
+Nox runs the test suite across all Python versions configured in
+`noxfile.py`:
+
 ```bash
-# Run tests across all configured Python versions
+# Run the default Nox sessions (tests + lint)
 nox
 
-# Run specific session
-nox -s tests
-nox -s lint
+# Run tests on a specific Python version
+nox -s tests-3.12
+
+# Pass arguments to pytest
+nox -s tests -- -v
 ```
+
+The Nox test session also generates test coverage reports, including a
+terminal summary and an HTML report.
 
 ### Code Quality
 
 ```bash
-# Run pre-commit hooks manually
+# Run all pre-commit hooks
 pre-commit run --all-files
 
-# Format code
-black src tests
-isort src tests
+# Run linting
+nox -s lint
 
-# Lint code
-ruff check src tests
+# Run formatting
+nox -s format
 ```
 
 ## Project Structure
 
 ```
-chunking-toolkit/
+document-processing-toolkit/
 ├── src/
-│   └── chunking_toolkit/     # Main package
+│   └── document_processing_toolkit/     # Main package
 │       └── __init__.py
 ├── tests/                    # Test files
-├── docs/                     # Documentation
 ├── pyproject.toml           # Project configuration
 └── README.md               # This file
 ```

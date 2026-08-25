@@ -11,7 +11,7 @@ assignees: ''
 Provide a clear and concise description of what you'd like to refactor or improve.
 
 **Location:**
-- [ ] Specific module: `src/chunking_toolkit/...`
+- [ ] Specific module: `src/document_processing_toolkit/...`
 - [ ] Multiple modules
 - [ ] Test code
 - [ ] Documentation
