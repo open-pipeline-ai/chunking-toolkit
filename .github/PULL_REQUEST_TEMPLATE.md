@@ -61,7 +61,7 @@ _Describe the tests you ran and how to reproduce them:_
 
 ```bash
 # Example test commands
-pytest tests/test_chunker.py
+pytest tests/test_document.py
 pytest --cov
 ```
 
